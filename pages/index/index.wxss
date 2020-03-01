@@ -1,0 +1,27 @@
+.search{
+  background: #ff2d4a;
+  padding: 20rpx 16rpx;
+}
+
+.searchInput{
+  height: 60rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  color: #ccc;
+}
+
+.searchInput icon{
+  margin-right: 5rpx;
+}
+
+.swiper{
+  height: 340rpx;
+}
+.swiper image{
+  width: 100%;
+  height: 340rpx;
+}
