@@ -42,4 +42,10 @@
       </view>
     </view>
   </view>
+
+  <!-- 回到顶部 -->
+  <view class="toTop" bindtap="handleTotop" wx:if="{{isShowTop}}">
+    <view class="arrow"></view>
+    <text>顶部</text>
+  </view>
 </view>
