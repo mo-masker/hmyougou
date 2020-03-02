@@ -4,24 +4,42 @@
   <navigator url="">
     <view class="search">
       <view class="searchInput">
-      <icon type="search" size="20"></icon>
+        <icon type="search" size="20"></icon>
         搜索
       </view>
     </view>
   </navigator>
 
   <!-- 轮播图 -->
-  <swiper 
-  class="swiper"
-        indicator-dots
-        indicator-color="rgba(255, 255, 255, .3)"
-        indicator-active-color="#000"
-        circular="true"
-        >
-        <block wx:for="{{banners}}" wx:key="index">
-          <swiper-item>
-            <image src="{{ item.image_src }}"></image>
-          </swiper-item>
+  <swiper class="swiper" indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#000" circular="true">
+    <block wx:for="{{banners}}" wx:key="index">
+      <swiper-item>
+        <image src="{{ item.image_src }}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 导航菜单 -->
+  <view class="menus">
+    <block wx:for="{{menus}}" wx:key="index">
+      <navigator url="{{item.url}}" open-type="{{item.open_type}}">
+        <image src="{{item.image_src}}" mode="aspectFill"></image>
+      </navigator>
+    </block>
+  </view>
+
+  <!-- 楼层分类 -->
+  <view class="floor" wx:for="{{floors}}" wx:key="index">
+    <image class="floor-title" mode="aspectFill" src="{{item.floor_title.image_src}}"></image>
+    <view class="floor-content">
+      <view class="floor-content-left">
+        <image mode="aspectFill" src="{{item.product_list[0].image_src}}"></image>
+      </view>
+      <view class="floor-content-right">
+        <block wx:for="{{item.product_list}}" wx:key="index" wx:if="{{index > 0}}">
+          <image mode="aspectFill" src="{{item.image_src}}"></image>
         </block>
-      </swiper>
+      </view>
+    </view>
+  </view>
 </view>
