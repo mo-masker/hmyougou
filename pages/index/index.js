@@ -8,7 +8,7 @@ Page({
     // 楼层的数据
     floors:[],
     // 页面是否滚动
-    isShowTop:""
+    isShowTop:false
   },
   onLoad() {
     // 请求轮播图的数据
@@ -70,7 +70,7 @@ Page({
   // 页面滚动触发事件的处理函数
   // 监听用户滑动页面事件
   onPageScroll(e){
-    console.log(e)
+    // console.log(e)
     const { scrollTop } = e;
     // 保存当前的显示状态
     let isShow = this.data.isShowTop;
@@ -83,7 +83,7 @@ Page({
     }
 
     // 避免频繁的操作setData，所以如果下面两个值是相同就没必要再赋值了
-    if(isShow === isShowTop) return;
+    if(isShow === this.data.isShowTop) return;
 
     this.setData({
       isShowTop:isShow

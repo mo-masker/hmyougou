@@ -1,2 +1,5 @@
-<!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<view class="container">
+  <!-- 引用搜索自定义组件 -->
+  <search/>
+  
+</view>
