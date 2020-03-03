@@ -1,4 +1,4 @@
-// pages/category/index.js
+import request from "../../utils/request.js"
 Page({
 
   /**
@@ -6,7 +6,9 @@ Page({
    */
   data: {
     // 记录当前点击的菜单
-    current:""
+    current:0,
+    // 保存分类数据
+    categoryList:[]
 
   },
 
@@ -14,7 +16,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 请求分类数据
+    request({
+      url:"/categories"
+    }).then(res=>{
+      console.log(res)
+      const {message} = res.data;
 
+      this.setData({
+        categoryList:message
+      })
+    })
   },
 
   // 菜单项的点击事件

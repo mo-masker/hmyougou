@@ -3,29 +3,31 @@
   <search/>
   <view class="content">
     <view class="content-left">
-      <!-- 菜单的选项列表 -->
-      <block wx:for="{{ 100 }}" wx:key="index">
-        <view class="menu-item {{current === index ? 'active' : '' }}" 
-        bindtap="handleClick" 
-        data-index="{{index}}">
-        热门推荐
+      <!-- 左边菜单的选项列表 -->
+      <block wx:for="{{ categoryList }}" wx:key="index">
+        <view class="menu-item {{current === index ? 'active' : '' }}" bindtap="handleClick" data-index="{{index}}">
+          {{item.cat_name}}
         </view>
       </block>
     </view>
+    <!-- 右边内容 -->
     <view class="content-right">
-      <!-- 标题 -->
-      <view class="category-title">
-        /<text>电视</text>/
-      </view>
-      <!-- 产品列表 -->
-      <view class="product-list">
-      <block wx:for="{{50}}" wx:key="index">
-        <navigator url="">
-          <image mode="aspectFill" src="https://img20.360buyimg.com/deepvisual/s300x150_jfs/t1/103803/24/13275/16875/5e57867bE2a8fe09a/398a5873dc991625.png!cc_300x150.webp"></image>
-          <text>京东国际</text>
-        </navigator>
-        </block>
-      </view>
+      <block wx:for="{{categoryList[current].children}}" wx:key="index">
+        <!-- 标题 -->
+        <view class="category-title">
+          /
+          <text>{{item.cat_name}}</text>/
+        </view>
+        <!-- 产品列表 -->
+        <view class="product-list">
+          <block wx:for="{{item.children}}" wx:key="index">
+            <navigator url="">
+              <image mode="widthFix" src="{{item.cat_icon}}"></image>
+              <text>{{item.cat_name}}</text>
+            </navigator>
+          </block>
+        </view>
+      </block>
     </view>
   </view>
 </view>
