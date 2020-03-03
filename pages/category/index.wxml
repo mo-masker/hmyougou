@@ -1,5 +1,29 @@
 <view class="container">
   <!-- 引用搜索自定义组件 -->
   <search/>
-  
+  <view class="content">
+    <view class="content-left">
+      <!-- 菜单的选项列表 -->
+      <block wx:for="{{ 100 }}" wx:key="index">
+        <view class="menu-item {{current === index ? 'active' : '' }}" 
+        bindtap="handleClick" 
+        data-index="{{index}}">
+        热门推荐
+        </view>
+      </block>
+    </view>
+    <view class="content-right">
+      <!-- 标题 -->
+      <view class="category-title">
+        电视
+      </view>
+      <!-- 产品列表 -->
+      <view class="product-list">
+        <navigator url="">
+          <image mode="aspectFill" src="https://img20.360buyimg.com/deepvisual/s300x150_jfs/t1/103803/24/13275/16875/5e57867bE2a8fe09a/398a5873dc991625.png!cc_300x150.webp"></image>
+          <text>京东国际</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
 </view>

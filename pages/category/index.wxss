@@ -1,1 +1,46 @@
 /* pages/category/index.wxss */
+.content{
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 100rpx;
+  bottom: 0px;
+  width: 100%;
+}
+
+/* 左边内容 */
+.content-left{
+  width: 200rpx;
+  height: 100%;
+  background: #eee;
+  overflow: auto;
+}
+/* 左边菜单的每一项 */
+.menu-item {
+  text-align: center;
+  padding: 20rpx 0;
+  border-bottom: 1px #ddd solid;
+  font-size: 34rpx;
+}
+.active{
+  color: red;
+  background: #fff;
+  /* border-left: 2px red solid; */
+  position: relative;
+}
+.active::before{
+  display: block;
+  content: "";
+  width: 2px;
+  height: 34rpx;
+  background: red;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-8px)
+}
+
+/* 右边内容 */
+.content-right image{
+  width: 100%;
+}
