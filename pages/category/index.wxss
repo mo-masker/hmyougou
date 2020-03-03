@@ -14,6 +14,7 @@
   height: 100%;
   background: #eee;
   overflow: auto;
+  flex-shrink: 0;
 }
 /* 左边菜单的每一项 */
 .menu-item {
@@ -41,6 +42,41 @@
 }
 
 /* 右边内容 */
-.content-right image{
+.content-right{
+  flex: 1;
+  overflow: auto;
+}
+.category-title{
+  text-align: center;
+  padding: 20rpx;
+  color: #ccc;
+}
+.category-title text {
+  color: #000;
+  margin: 0 20rpx;
+}
+/* 产品列表 */
+.product-list {
+  display: flex;
   width: 100%;
+  overflow: hidden;
+  flex-wrap: wrap;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.product-list navigator{
+  display: block;
+  width: 33.33%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  font-size: 28rpx;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10rpx;
+}
+.product-list navigator image{
+  width: 100%;
+  height: 92rpx;
 }
