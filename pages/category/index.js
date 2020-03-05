@@ -20,7 +20,7 @@ Page({
     request({
       url:"/categories"
     }).then(res=>{
-      console.log(res)
+      // console.log(res)
       const {message} = res.data;
 
       this.setData({

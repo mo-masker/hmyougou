@@ -22,8 +22,8 @@
         <view class="product-list">
           <block wx:for="{{item.children}}" wx:key="index">
             <navigator url="">
-              <image mode="widthFix" src="{{item.cat_icon}}"></image>
-              <text>{{item.cat_name}}</text>
+              <image mode="aspectFill" src="{{item.cat_icon}}"></image>
+              <view>{{item.cat_name}}</view>
             </navigator>
           </block>
         </view>

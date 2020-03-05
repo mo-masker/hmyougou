@@ -1,0 +1,61 @@
+/* 搜索栏 */
+
+.search {
+  background: rgba(237, 243, 251);
+  padding: 20rpx 16rpx;
+}
+
+.searchInput {
+  height: 60rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  font-size: 24rpx;
+  color: #000;
+}
+
+.searchInput icon {
+  margin-right: 5rpx;
+}
+
+/* tab栏 */
+.tab{
+  display: flex;
+  padding: 20rpx 0;
+  justify-content: space-around;
+  border-bottom: 1px #eee solid;
+}
+
+.goods-item{
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px #eee solid;
+}
+.goods-item image{
+  width: 200rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+}
+.goods-item-right{
+  flex: 1;
+  padding-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.goods-item-title{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  overflow: hidden;
+}
+.goods-item-price{
+  color: red;
+  font-size: 22px;
+}
+.goods-item-price text{
+  font-size: 14px;
+}
