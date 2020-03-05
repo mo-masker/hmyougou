@@ -19,14 +19,16 @@
   </view>
   <!-- 商品列表 -->
   <view class="list">
-    <navigator url="" class="goods-item">
-      <image mode="aspectFill" src="https://img12.360buyimg.com/jdcms/s150x150_jfs/t1/90031/10/12246/138180/5e465475Eb10977b1/34ccec3517813dea.jpg.webp"></image>
-      <view class="goods-item-right">
-        <view class="goods-item-title">日本株式会社DCore按摩椅 家用商用全身太空舱全自动 多功能老年人电动豪华DC-001C按摩椅家电 尊贵黑（少量现货）</view>
-        <view class="goods-item-price">
-        <text>￥</text>
-        69.00</view>
-      </view>
-    </navigator>
+    <block wx:for="{{goods}}" wx:key="index">
+      <navigator url="" class="goods-item">
+        <image mode="aspectFill" src="{{item.goods_small_logo}}"></image>
+        <view class="goods-item-right">
+          <view class="goods-item-title">{{item.goods_name}}</view>
+          <view class="goods-item-price">
+            <text>￥</text> {{item.goods_price}}
+          </view>
+        </view>
+      </navigator>
+    </block>
   </view>
 </view>
