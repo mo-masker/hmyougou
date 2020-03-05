@@ -27,7 +27,7 @@
   justify-content: space-around;
   border-bottom: 1px #eee solid;
 }
-
+/* 商品列表 */
 .goods-item{
   padding: 20rpx;
   display: flex;
@@ -58,4 +58,11 @@
 }
 .goods-item-price text{
   font-size: 14px;
+}
+
+/* 底部提示 */
+.load-more{
+  color: #ccc;
+  text-align: center;
+  padding: 20rpx;
 }

@@ -9,7 +9,9 @@ Page({
     // 保存输入的搜索参数
     keyword: '',
     // 商品数据
-    goods:[]
+    goods: [],
+    // 是否还有数据
+    hasMore: true
   },
 
   /**
@@ -17,38 +19,45 @@ Page({
    */
   onLoad: function(options) {
     // console.log(options)
-    const { keyword } = options;
+    const {
+      keyword
+    } = options;
 
     this.setData({
-      keyword
-    }),
+        keyword
+      }),
 
-      // 传入参数请求商品列表数据
-      request({
-      url:"/goods/search",
-      data:{
-        // 参数 关键字
-        query:this.data.keyword,
-        // 页码
-        pagenum:1,
-        // 数据条数
-        pagesize:10
-      }
-      }).then(res=>{
-        // console.log(res)
-        const { message } = res.data;
+      setTimeout(v => {
+        // 传入参数请求商品列表数据
+        request({
+          url: "/goods/search",
+          data: {
+            // 参数 关键字
+            query: this.data.keyword,
+            // 页码
+            pagenum: 1,
+            // 数据条数
+            pagesize: 10
+          }
+        }).then(res => {
+          // console.log(res)
+          const {
+            message
+          } = res.data;
 
-        // 遍历修改goods下面的价格
-        const goods = message.goods.map(v => {
-          // 给价格保留两个小数点
-          v.goods_price = Number(v.goods_price).toFixed(2);
-          return v;
+          // 遍历修改goods下面的价格
+          const goods = message.goods.map(v => {
+            // 给价格保留两个小数点
+            v.goods_price = Number(v.goods_price).toFixed(2);
+            return v;
+          })
+
+          this.setData({
+            goods
+          })
         })
+      },3000)
 
-        this.setData({
-          goods
-        })
-      })
   },
 
   /**
