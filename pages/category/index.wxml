@@ -21,7 +21,7 @@
         <!-- 产品列表 -->
         <view class="product-list">
           <block wx:for="{{item.children}}" wx:key="index">
-            <navigator url="">
+            <navigator url="/pages/goods_list/index?keyword={{item.cat_name}}">
               <image mode="aspectFill" src="{{item.cat_icon}}"></image>
               <view>{{item.cat_name}}</view>
             </navigator>
