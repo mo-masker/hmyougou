@@ -1,14 +1,15 @@
 <!--pages/goods_list/index.wxml-->
 <view class="container">
   <!-- 顶部的搜索栏 -->
-  <navigator url="">
+  <!-- <navigator url="">
     <view class="search">
       <view class="searchInput">
         <icon type="search" size="20"></icon>
         {{keyword}}
       </view>
     </view>
-  </navigator>
+  </navigator> -->
+  <search keyword="{{keyword}}" my-class="search"/>
 
   <!-- 中间的tab栏 -->
   <view class="tab">
