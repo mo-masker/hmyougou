@@ -4,9 +4,6 @@
   background: rgba(237, 243, 251)!important;
   padding: 20rpx 16rpx;
 }
-.search view{
-  justify-content: flex-start;
-}
 
 /* .searchInput {
   height: 60rpx;

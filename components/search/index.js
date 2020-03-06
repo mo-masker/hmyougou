@@ -8,10 +8,15 @@ Component({
     keyword:{
       type:String,
       value: "搜索" // 这个是默认值，类似于vue里面的default
+    },
+    // 通过这个属性控制文字展示的位置
+    align:{
+      type: String,
+      value: "center"
     }
   },
   // 外部扩展的样式  声明接收的样式
-  externalClasses: ['my-class'],
+  externalClasses: ['my-class','align'],
 
   /**
    * 组件的初始数据

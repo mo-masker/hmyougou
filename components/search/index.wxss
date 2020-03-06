@@ -18,3 +18,13 @@
 .searchInput icon{
   margin-right: 5rpx;
 }
+
+.left{
+  justify-content:flex-start;
+}
+.center{
+  justify-content:center;
+}
+.right{
+  justify-content: flex-end;
+}

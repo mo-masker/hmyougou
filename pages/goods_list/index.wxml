@@ -9,7 +9,7 @@
       </view>
     </view>
   </navigator> -->
-  <search keyword="{{keyword}}" my-class="search"/>
+  <search keyword="{{keyword}}" my-class="search" align="left"/>
 
   <!-- 中间的tab栏 -->
   <view class="tab">
