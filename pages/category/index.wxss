@@ -1,10 +1,13 @@
 /* pages/category/index.wxss */
 .content{
-  position: fixed;
+  /* 这里必须要使用绝对定位，在苹果手机下头部搜索就不可以拖动了 */
+  /* position: absolute;
+  top: 100rpx;
+  bottom: 0px; */
+
+  height: calc(100vh - 100rpx);
   display: flex;
   justify-content: space-between;
-  top: 100rpx;
-  bottom: 0px;
   width: 100%;
 }
 

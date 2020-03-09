@@ -16,7 +16,7 @@ Component({
     }
   },
   // 外部扩展的样式  声明接收的样式
-  externalClasses: ['my-class','align'],
+  externalClasses: ['my-class'],
 
   /**
    * 组件的初始数据
