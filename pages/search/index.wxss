@@ -1,0 +1,54 @@
+.search-wrapper{
+  padding: 20rpx;
+  background: rgba(238, 238, 238);
+}
+.search{
+  display: flex;
+  justify-content: space-between;
+  height: 60rpx;
+  position: relative;
+}
+.search-input{
+  flex: 1;
+  display: flex;
+  background: #fff;
+  padding: 0 20rpx;
+  align-items: center;
+  font-size: 14px;
+}
+.search-input input{
+  flex: 1;
+}
+
+.cancel-button{
+  width: 150rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px #ccc solid;
+  border-radius: 4px;
+  margin-left: 20rpx;
+  box-sizing: border-box;
+}
+
+/* 历史搜索 */
+.history-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+}
+
+.history-list{
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 20rpx;
+  font-size: 12px;
+}
+.history-item{
+  background: rgba(221, 221, 221);
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin: 10rpx 20rpx;
+}

@@ -1,0 +1,27 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-wrapper">
+    <view class="search">
+      <view class="search-input">
+        <icon type="search" size="20px"></icon>
+        <input 
+        bindinput="handleInput"
+        placeholder="请输入你想要的商品"></input>
+      </view>
+      <view wx:if="{{inputValue}}" class="cancel-button">取消</view>
+    </view>
+  </view>
+
+  <!-- 历史搜索 -->
+  <view class="history-title">
+    <view class="title-text">历史搜索</view>
+    <icon type="clear" size="20"></icon>
+  </view>
+  <!-- 历史搜索的列表 -->
+  <view class="history-list">
+    <view class="history-item">小米</view>
+    <view class="history-item">小米10086</view>
+    <view class="history-item">小米10086</view>
+    <view class="history-item">小米10086</view>
+  </view>
+</view>
