@@ -8,6 +8,24 @@
   height: 60rpx;
   position: relative;
 }
+/* 搜索建议 */
+.recommend{
+  position: absolute;
+  top:60rpx;
+  left: 0rpx;
+  background: #fff;
+  width: 100%;
+  border: 1px #ccc solid;
+  padding: 20rpx;
+  box-sizing: border-box;
+  height: 50vh;
+  overflow: auto;
+}
+.recommend navigator{
+  line-height: 2;
+  border-bottom: 1px #eee solid;
+  font-size: 14px;
+}
 .search-input{
   flex: 1;
   display: flex;
@@ -19,7 +37,7 @@
 .search-input input{
   flex: 1;
 }
-
+/* 取消按钮 */
 .cancel-button{
   width: 150rpx;
   height: 60rpx;

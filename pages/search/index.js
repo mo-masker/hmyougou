@@ -1,4 +1,4 @@
-// pages/search/index.js
+import request from "../../utils/request.js"
 Page({
 
   /**
@@ -6,7 +6,8 @@ Page({
    */
   data: {
     // 输入框的值
-    inputValue: ''
+    inputValue: '',
+    recommend:''
   },
 
   /**
@@ -25,6 +26,23 @@ Page({
 
     this.setData({
       inputValue: value
+    })
+    // value为空就返回  有值继续请求
+    if(!value) return;
+
+    // 请求搜索建议
+    request({
+      url:"/goods/qsearch",
+      data:{
+        query:value
+      }
+    }).then(res=>{
+      // console.log(res)
+      const {message} = res.data;
+
+      this.setData({
+        recommend:message
+      })
     })
   }
 
