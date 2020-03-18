@@ -93,8 +93,25 @@ Page({
   handleCancel() {
     this.setData({
       inputValue: "",
-      recommend: ''
+      recommend: []
     })
+  },
+
+  // 输入框的失焦事件
+  handleBlur(){
+    this.setData({
+      recommend:[]
+    })
+  },
+
+  // 历史记录的点击清除事件
+  handleClear(){
+    // 清空历史记录
+    this.setData({
+      history:[]
+    })
+    // 清空本地存储的历史记录
+    wx.setStorageSync("history", [])
   },
 
   // 按下回车键时触发的事件

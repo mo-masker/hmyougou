@@ -6,7 +6,14 @@
         <icon type="search" size="20px"></icon>
         <!-- bindinput类似于oninput 监听用户输入事件 -->
         <!-- bindconfirm 按下回车键时触发的事件 -->
-        <input bindinput="handleInput" placeholder="请输入你想要的商品" value="{{inputValue}}" bindconfirm="handleEnter"></input>
+        <input 
+        bindinput="handleInput" 
+        placeholder="请输入你想要的商品" 
+        value="{{inputValue}}" 
+        bindconfirm="handleEnter"
+        bindblur="handleBlur"
+        focus="true"
+        ></input>
       </view>
       <view wx:if="{{inputValue}}" class="cancel-button" bindtap="handleCancel">取消</view>
       <!-- 搜索建议 -->
@@ -21,7 +28,7 @@
   <!-- 历史搜索 -->
   <view class="history-title">
     <view class="title-text">历史搜索</view>
-    <icon type="clear" size="20"></icon>
+    <icon type="clear" size="20" bindtap="handleClear"></icon>
   </view>
   <!-- 历史搜索的列表 -->
   <view class="history-list">
