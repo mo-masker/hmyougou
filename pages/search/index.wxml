@@ -4,7 +4,9 @@
     <view class="search">
       <view class="search-input">
         <icon type="search" size="20px"></icon>
-        <input bindinput="handleInput" placeholder="请输入你想要的商品" value="{{inputValue}}"></input>
+        <!-- bindinput类似于oninput 监听用户输入事件 -->
+        <!-- bindconfirm 按下回车键时触发的事件 -->
+        <input bindinput="handleInput" placeholder="请输入你想要的商品" value="{{inputValue}}" bindconfirm="handleEnter"></input>
       </view>
       <view wx:if="{{inputValue}}" class="cancel-button" bindtap="handleCancel">取消</view>
       <!-- 搜索建议 -->
@@ -23,9 +25,12 @@
   </view>
   <!-- 历史搜索的列表 -->
   <view class="history-list">
-    <view class="history-item">小米</view>
-    <view class="history-item">小米10086</view>
-    <view class="history-item">小米10086</view>
-    <view class="history-item">小米10086</view>
+    <block wx:for="{{history}}" wx:key="index">
+      <navigator 
+      class="history-item" 
+      url="/pages/goods_list/index?keyword={{item}}">
+        {{item}}
+      </navigator>
+    </block>
   </view>
 </view>

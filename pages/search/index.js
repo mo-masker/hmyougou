@@ -12,14 +12,24 @@ Page({
     // 推荐的内容列表
     recommend: [],
     // 加载的状态
-    loading: false
+    loading: false,
+    // 本地存储的历史记录
+    history:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    // 获取本地存储的关键字
+    let arr = wx.getStorageSync("history")
+    // 如果arr没有数据或不是一个数组，就把它变成一个数组
+    if (!Array.isArray(arr)) {
+      arr = []
+    }
+    this.setData({
+      history:arr
+    })
   },
 
   // 监听输入框的输入事件
@@ -85,6 +95,26 @@ Page({
       inputValue: "",
       recommend: ''
     })
-  }
+  },
 
+  // 按下回车键时触发的事件
+  handleEnter(){
+    // 每次保存前先把本地的数据获取回来
+    let arr = wx.getStorageSync("history")
+    // 如果arr没有数据或不是一个数组，就把它变成一个数组
+    if(!Array.isArray(arr)){
+      arr = []
+    }
+    // 把搜索关键字保存到本地
+    // 先把输入的关键字添加到数组里第一位
+    arr.unshift(this.data.inputValue)
+    // 数组去重
+    arr = [...new Set(arr)]
+    // 然后存储
+    wx.setStorageSync("history",arr)
+    //关闭当前页面，跳转页面 传参
+    wx.redirectTo({
+      url:"/pages/goods_list/index?keyword="+this.data.inputValue
+    })
+  }
 })
