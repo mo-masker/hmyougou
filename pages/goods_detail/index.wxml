@@ -1,0 +1,43 @@
+<view class="container">
+  <!-- 轮播图 -->
+  <swiper class="swiper" indicator-dots indicator-color="rgba(137, 137, 133, 1)" autoplay="true">
+    <block wx:for="{{banners}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" mode="aspectFit"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 商品信息 -->
+  <view class="info_wrapper">
+    <view class="price">
+      <text>￥</text>279
+    </view>
+    <view class="goods_info">
+      <view class="goods_title">商品标题商品标题商品标题商品标题商品标题商品标题商品标题商品标题商品标题商品标题商品标题</view>
+      <view class="goods_star">
+        <view class="iconfont icon-shoucang"></view>
+        <text>收藏</text>
+      </view>
+    </view>
+    <view class="goods_other">快递：免运费</view>
+  </view>
+
+  <!-- 页脚 -->
+  <view class="btns">
+    <view class="btns-white">
+      <view class="iconfont icon-kefu"></view>
+      <text>联系客服</text>
+    </view>
+    <view class="btns-white">
+      <view class="iconfont icon-gouwuche"></view>
+      <text>购物车</text>
+    </view>
+    <view class="btns-color">
+      加入购物车
+    </view>
+    <view class="btns-color">
+      立即购买
+    </view>
+  </view>
+</view>

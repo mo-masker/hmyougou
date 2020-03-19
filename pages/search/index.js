@@ -35,15 +35,13 @@ Page({
   // 监听输入框的输入事件
   handleInput(e) {
     // console.log(e.detail);
-    const {
-      value
-    } = e.detail;
+    const { value } = e.detail;
 
     this.setData({
       inputValue: value
     })
     // value为空就返回  有值继续请求
-    if (!value) {
+    if (!value.trim()) {
       // 把搜索建议的数组清空
       this.setData({
         recommend: []
@@ -106,16 +104,19 @@ Page({
 
   // 历史记录的点击清除事件
   handleClear(){
-    // 清空历史记录
+    // 清空data中历史记录数据
     this.setData({
       history:[]
     })
-    // 清空本地存储的历史记录
+    // 清空本地存储的历史记录数据
     wx.setStorageSync("history", [])
   },
 
   // 按下回车键时触发的事件
   handleEnter(){
+    if (this.data.inputValue.trim() == ""){
+      return
+    }
     // 每次保存前先把本地的数据获取回来
     let arr = wx.getStorageSync("history")
     // 如果arr没有数据或不是一个数组，就把它变成一个数组
