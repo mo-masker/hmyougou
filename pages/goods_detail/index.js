@@ -6,18 +6,42 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //商品图片列表
-    banners: [
-      "http://img4.imgtn.bdimg.com/it/u=2588111137,2818876915&fm=26&gp=0.jpg",
-      "http://pic1.win4000.com/wallpaper/e/51ae9d0f23fca.jpg", "http://attachments.gfan.net.cn/forum/attachments2/201302/23/032442iev5dv888u8qo34q.jpg"
-    ]
+    // 商品信息
+    goodsInfo:[],
+    // tab栏的索引值
+    current:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
+    // console.log(options)
+    const id = options.id;
+    request({
+      url: "/goods/detail",
+      data: {
+        goods_id: id
+      }
+    }).then(res => {
+      console.log(res)
+      const {message} = res.data;
+
+      this.setData({
+        goodsInfo:message
+      })
+    })
+  },
+
+  // 商品详情栏的点击事件
+  handleTab(e){
+    // console.log(e)
+    // 保存点击的当前tab栏的索引值
+    const {index} = e.currentTarget.dataset
+
+    this.setData({
+      current:index
+    })
   }
 
 

@@ -1,10 +1,18 @@
+.container {
+  padding-bottom: 100rpx;
+}
 .swiper {
+  width: 750rpx;
   height: 750rpx;
-  background: rgb(224, 10, 10);
+  /* background: rgb(224, 10, 10); */
+}
+.swiper image {
+  width: 750rpx;
+  height: 750rpx;
 }
 
 .info_wrapper {
-  padding: 20px 0 20px 20px;
+  padding: 20rpx 0 20rpx 20rpx;
 }
 
 .price{
@@ -79,4 +87,32 @@
 }
 .btns-color:last-child{
   background: red;
+}
+
+/* 商品详细信息 */
+.tab {
+  display: flex;
+  border-top: 10px #eee solid;
+}
+
+.tab-item{
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.tab-item.active{
+  background: red;
+  color: #fff;
+}
+
+/* 商品规格 */
+.attrs{
+  padding: 20rpx;
+}
+.atr-item {
+  line-height: 2;
+}
+.attr-item text {
+  margin-right: 20rpx;
 }
