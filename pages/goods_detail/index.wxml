@@ -58,6 +58,8 @@
 
   <!-- 页脚 -->
   <view class="btns">
+  <!-- 联系客服的按钮 -->
+  <button open-type="contact" class="contact"></button>
     <view class="btns-white">
       <view class="iconfont icon-kefu"></view>
       <text>联系客服</text>

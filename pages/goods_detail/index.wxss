@@ -68,6 +68,15 @@
   height: 100rpx;
 }
 
+.contact{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20%!important;
+  height: 100%;
+  opacity: 0;
+}
+
 .btns-white{
   width: 20%;
   display: flex;
