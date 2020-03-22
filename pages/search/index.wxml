@@ -1,24 +1,28 @@
-<view class="container">
+<view class="container" bindtap="handleShowList">
   <!-- 搜索栏 -->
   <view class="search-wrapper">
     <view class="search">
       <view class="search-input">
         <icon type="search" size="20px"></icon>
         <!-- bindinput类似于oninput 监听用户输入事件 -->
+        <!-- bindblur="handleBlur" -->
         <!-- bindconfirm 按下回车键时触发的事件 -->
         <input 
         bindinput="handleInput" 
         placeholder="请输入你想要的商品" 
         value="{{inputValue}}" 
-        bindconfirm="handleEnter"
-        bindblur="handleBlur"
+        bindconfirm="handleEnter" 
+        bindblur="handleBlur" 
         focus="true"
         ></input>
       </view>
       <view wx:if="{{inputValue}}" class="cancel-button" bindtap="handleCancel">取消</view>
       <!-- 搜索建议 -->
       <view class="recommend" wx:if="{{recommend.length}}">
-        <navigator url="" wx:for="{{recommend}}" wx:key="index">
+        <navigator url="" 
+        wx:for="{{recommend}}" 
+        wx:key="index"
+        data-onlyid="{{item.goods_id}}">
           {{item.goods_name}}
         </navigator>
       </view>

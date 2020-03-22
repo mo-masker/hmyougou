@@ -117,7 +117,7 @@ Page({
     if (this.data.inputValue.trim() == ""){
       return
     }
-    // 每次保存前先把本地的数据获取回来
+    // 每次保存前先把本地的历史记录获取回来
     let arr = wx.getStorageSync("history")
     // 如果arr没有数据或不是一个数组，就把它变成一个数组
     if(!Array.isArray(arr)){
@@ -134,5 +134,16 @@ Page({
     wx.redirectTo({
       url:"/pages/goods_list/index?keyword="+this.data.inputValue
     })
+  },
+
+  // 
+  handleShowList(e){
+    console.log(e)
+    const { onlyid } = e.target.dataset; 
+    if (!onlyid){
+      this.setData({
+        recommend: []
+      })
+    }
   }
 })
