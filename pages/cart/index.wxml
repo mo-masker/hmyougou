@@ -1,14 +1,26 @@
 <view class="container">
   <!-- 收货信息 -->
-  <view class="address">
+  <view class="address" wx:if="{{!address.name}}" bindtap="handleGetAddress">
     <!-- 收货人 -->
     <view class="address-info">
-      <view>收货人：我</view>
-      <view class="tel">13813812345</view>
+      <view>获取收货地址</view>
+      <view class="tel"></view>
+    </view>
+    
+    <image mode="aspectFill" src="../../images/cart_border@2x.png"></image>
+  </view>
+  <!-- 判断是否显示 -->
+  <view class="address" 
+  wx:if="{{address.name}}" 
+  >
+    <!-- 收货人 -->
+    <view class="address-info">
+      <view>收货人：{{address.name}}</view>
+      <view class="tel">{{address.tel}}</view>
     </view>
     <!-- 收货地址 -->
     <view class="address-detail">
-      收货地址：广州天河珠吉街道
+      收货地址：{{address.detailAddress}}
     </view>
     <image mode="aspectFill" src="../../images/cart_border@2x.png"></image>
   </view>
@@ -21,7 +33,7 @@
   </view>
   <!-- 订单列表 -->
   <view class="goods-list">
-    <view class="goods-item" wx:for="{{5}}">
+    <view class="goods-item" wx:for="{{5}}" wx:key="index">
       <icon type="success" color="red"></icon>
       <image mode="aspectFill" src="https://img10.360buyimg.com/mobilecms/s144x144_jfs/t1/107935/6/8490/169215/5e69d6a6E12fe10a7/9bc9e911be004a42.png!q70.jpg.webp"></image>
       <view class="item-right">
