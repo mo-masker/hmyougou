@@ -12,12 +12,12 @@
         placeholder="请输入你想要的商品" 
         value="{{inputValue}}" 
         bindconfirm="handleEnter" 
-        bindblur="handleBlur" 
         focus="true"
         ></input>
       </view>
       <view wx:if="{{inputValue}}" class="cancel-button" bindtap="handleCancel">取消</view>
       <!-- 搜索建议 -->
+      <!-- recommend.length是判断数组有值的时候才显示下拉列表 -->
       <view class="recommend" wx:if="{{recommend.length}}">
         <navigator url="" 
         wx:for="{{recommend}}" 

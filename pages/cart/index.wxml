@@ -1,2 +1,59 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="container">
+  <!-- 收货信息 -->
+  <view class="address">
+    <!-- 收货人 -->
+    <view class="address-info">
+      <view>收货人：我</view>
+      <view class="tel">13813812345</view>
+    </view>
+    <!-- 收货地址 -->
+    <view class="address-detail">
+      收货地址：广州天河珠吉街道
+    </view>
+    <image mode="aspectFill" src="../../images/cart_border@2x.png"></image>
+  </view>
+
+  <!-- 商品信息 -->
+  <!-- 店铺名 -->
+  <view class="shop">
+    <view class="iconfont icon-dianpu"></view>
+    <text>优购生活馆</text>
+  </view>
+  <!-- 订单列表 -->
+  <view class="goods-list">
+    <view class="goods-item" wx:for="{{5}}">
+      <icon type="success" color="red"></icon>
+      <image mode="aspectFill" src="https://img10.360buyimg.com/mobilecms/s144x144_jfs/t1/107935/6/8490/169215/5e69d6a6E12fe10a7/9bc9e911be004a42.png!q70.jpg.webp"></image>
+      <view class="item-right">
+        <view class="goods-title">
+          初语2017初语2017初语2017初语2017初语2017初语2017初语2017
+        </view>
+        <view class="goods-info">
+          <view class="goods-price">
+            <text>￥</text>279.00
+          </view>
+          <!-- 商品的数量 -->
+          <view class="goods-number">
+            <view class="calc-button">-</view>
+            <input value="1"></input>
+            <view class="calc-button">+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 订单全选和结算 -->
+  <view class="checkout">
+    <view class="all">
+      <icon type="success" color="red"></icon>全选
+    </view>
+    <view class="allprice">
+      <view class="allprice-top">合计:
+        <text><text>￥</text>14110.00</text>
+      </view>
+      <view class="allprice-btm">包含运费</view>
+    </view>
+    <view class="checkout-btn">结算(3)</view>
+  </view>
+</view>

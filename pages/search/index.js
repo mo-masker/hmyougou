@@ -136,10 +136,11 @@ Page({
     })
   },
 
-  // 
+  // 点击页面时候判断是否展示搜索框的下拉列表
   handleShowList(e){
-    console.log(e)
+    // console.log(e)
     const { onlyid } = e.target.dataset; 
+    // 如果id不存在，说明点击并不是下拉列表
     if (!onlyid){
       this.setData({
         recommend: []

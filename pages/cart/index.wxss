@@ -1,1 +1,164 @@
-/* pages/cart/index.wxss */
+/* 收货信息 */
+
+.address-info {
+  padding: 40rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.address-info .tel {
+  display: flex;
+  align-items: center;
+}
+
+.address-info .tel::after {
+  display: block;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-left: 1px #999 solid;
+  border-top: 1px #999 solid;
+  transform: rotate(135deg);
+  margin-left: 10px;
+}
+
+.address-detail {
+  padding: 0 20rpx 40rpx;
+}
+
+.address image {
+  display: flex;
+  margin: 0;
+  width: 750rpx;
+  height: 15rpx;
+}
+
+/* 店铺 */
+
+.shop {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  border-top: 20rpx #eee solid;
+  border-bottom: 2px #eee solid;
+}
+
+.shop view {
+  margin-right: 20rpx;
+  font-size: 14px;
+}
+
+/* 商品列表 */
+.goods-list{
+  padding-bottom: 180rpx;
+}
+
+.goods-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1px #eee solid;
+}
+
+.goods-item image {
+  width: 180rpx;
+  height: 180rpx;
+  flex-shrink: 0;
+}
+
+.goods-item icon {
+  margin-right: 20rpx;
+}
+/* 右边内容 */
+.item-right {
+  height: 200rpx;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+/* 商品标题 */
+.goods-title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+/* 商品价格数量 */
+.goods-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.goods-price{
+  color: red;
+}
+.goods-price text{
+  font-size: 12px;
+}
+.goods-number{
+  display: flex;
+  align-items: center;
+}
+.calc-button {
+  width: 20px;
+  height: 20px;
+  border: 1px #000 solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.goods-number input{
+  width: 36px;
+  text-align: center;
+}
+
+/* 总价和结算 */
+.checkout{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 750rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  z-index: 2;
+}
+/* 全选 */
+.all{
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.all icon{
+  margin-right: 20rpx;
+}
+/* 合计 */
+.allprice{
+  flex: 1;
+  padding-left: 20px;
+}
+.allprice-top text {
+  color: red;
+}
+.allprice-top text text {
+  font-size: 12px;
+}
+.allprice-btm {
+  color: #999;
+  font-size: 12px;
+}
+/* 结算按钮 */
+.checkout-btn {
+  width: 30%;
+  height: 100%;
+  background: #eb4450;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
