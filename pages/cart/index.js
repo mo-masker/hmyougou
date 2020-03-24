@@ -14,6 +14,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    // 
+    this.setData({
+      address : wx.getStorageSync("address")
+    })
 
   },
 
@@ -33,6 +37,8 @@ Page({
           }
 
         })
+        // 把地址数据保存到本地
+        wx.setStorageSync("address", this.data.address)
       }
     })
   }
