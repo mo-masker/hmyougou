@@ -68,6 +68,18 @@ Page({
     this.setData({
       allprice: price
     })
+  },
+
+  // 点击加号事件
+  handleCalc(e){
+    // 保存当前点击数据的索引值
+    const { index } = e.currentTarget.dataset
+    // 给当前点击的商品数量 +1
+    this.data.goods[index].number += 1;
+    // 刷新数据
+    this.setData({
+      goods: this.data.goods
+    })
   }
 
 
