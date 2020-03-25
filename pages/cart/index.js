@@ -76,7 +76,34 @@ Page({
     const { index, number } = e.currentTarget.dataset
     // 给当前点击的商品数量 +1
     this.data.goods[index].number += number;
-    // 刷新数据
+
+    // 判断 如果数量为0的时候，删除当前商品
+    if (this.data.goods[index].number === 0){
+      wx.showModal({
+        title: '提示',
+        content: '是否删除该商品',
+        success:(res)=> {
+          if (res.confirm) {
+            // 点击确认删除商品
+            this.data.goods.splice(index, 1)
+
+            // 重新修改data中goods的值 刷新数据
+            this.setData({
+              goods: this.data.goods
+            })
+          } else if (res.cancel) {
+            this.data.goods[index].number = 1;
+
+            // 重新修改data中goods的值 刷新数据
+            this.setData({
+              goods: this.data.goods
+            })
+          }
+        }
+      })
+    }
+
+    // 重新修改data中goods的值 刷新数据
     this.setData({
       goods: this.data.goods
     })
