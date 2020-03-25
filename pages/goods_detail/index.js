@@ -69,6 +69,43 @@ Page({
     wx.switchTab({
       url:"/pages/cart/index"
     })
+  },
+
+  // 加入购物车点击事件
+  handleAddcart(){
+    // 每次加入购物车之前先判断本地有没有数据，如果没有就等于空数组
+    let goods = wx.getStorageSync("goods") || [];
+
+    // 判断当前的商品是否保存在本地goods中
+    // 存在就数量加1，不存在就unshift
+    // some循环数组，只要有一个true就返回true，没有就返回false
+    const have = goods.some(v =>{
+      // 存在就数量加1
+      if (v.goods_id === this.data.goodsInfo.goods_id){
+        v.number += 1;
+        // 提示
+        wx.showToast({
+          title: '数量+1',
+          icon: 'success'
+        })
+      }
+      return v.goods_id === this.data.goodsInfo.goods_id
+    })
+
+    // 如果本地没有存储当前商品数据
+    if(!have){
+      // 把当前的商品添加到本地的数组中
+      goods.unshift({
+        goods_id: this.data.goodsInfo.goods_id,
+        goods_name: this.data.goodsInfo.goods_name,
+        goods_price: this.data.goodsInfo.goods_price,
+        goods_small_logo: this.data.goodsInfo.goods_small_logo,
+        number: 1
+      })
+    }
+
+    // 保存到本地
+    wx.setStorageSync("goods", goods)
   }
 
 })

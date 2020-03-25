@@ -68,7 +68,7 @@
       <view class="iconfont icon-gouwuche"></view>
       <text>购物车</text>
     </view>
-    <view class="btns-color">
+    <view class="btns-color" bindtap="handleAddcart">
       加入购物车
     </view>
     <view class="btns-color">
