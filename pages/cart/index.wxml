@@ -31,24 +31,26 @@
     <view class="iconfont icon-dianpu"></view>
     <text>优购生活馆</text>
   </view>
-  <!-- 订单列表 -->
+  <!-- 商品列表 -->
   <view class="goods-list">
-    <view class="goods-item" wx:for="{{5}}" wx:key="index">
+    <view class="goods-item" wx:for="{{goods}}" wx:key="index">
       <icon type="success" color="red"></icon>
-      <image mode="aspectFill" src="https://img10.360buyimg.com/mobilecms/s144x144_jfs/t1/107935/6/8490/169215/5e69d6a6E12fe10a7/9bc9e911be004a42.png!q70.jpg.webp"></image>
+      <navigator url="/pages/goods_detail/index?id={{item.goods_id}}">
+      <image mode="aspectFill" src="{{item.goods_small_logo}}"></image>
+      </navigator>
       <view class="item-right">
         <view class="goods-title">
-          初语2017初语2017初语2017初语2017初语2017初语2017初语2017
+          {{item.goods_name}}
         </view>
         <view class="goods-info">
           <view class="goods-price">
-            <text>￥</text>279.00
+            <text>￥</text>{{item.goods_price}}
           </view>
           <!-- 商品的数量 -->
           <view class="goods-number">
             <view class="calc-button">-</view>
-            <input value="1"></input>
-            <view class="calc-button">+</view>
+            <input value="{{item.number}}"></input>
+            <view class="calc-button" >+</view>
           </view>
         </view>
       </view>
@@ -62,7 +64,7 @@
     </view>
     <view class="allprice">
       <view class="allprice-top">合计:
-        <text><text>￥</text>14110.00</text>
+        <text><text>￥</text>{{allprice}}</text>
       </view>
       <view class="allprice-btm">包含运费</view>
     </view>

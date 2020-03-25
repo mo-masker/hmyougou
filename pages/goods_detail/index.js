@@ -102,6 +102,11 @@ Page({
         goods_small_logo: this.data.goodsInfo.goods_small_logo,
         number: 1
       })
+      // 提示
+      wx.showToast({
+        title: '加入成功',
+        icon: 'success'
+      })
     }
 
     // 保存到本地

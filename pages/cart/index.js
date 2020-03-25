@@ -6,7 +6,11 @@ Page({
    */
   data: {
     // 收货地址
-    address: {}
+    address: {},
+    // 本地的商品列表
+    goods:[],
+    // 总价格
+    allprice:0
 
   },
 
@@ -20,6 +24,15 @@ Page({
       address : wx.getStorageSync("address") || {}
     })
 
+  },
+  // 因为data和onload只会执行一次，所以需要在每次打开页面都获取一次本地的数据
+  onShow(){
+    this.setData({
+      goods: wx.getStorageSync("goods") || []
+    })
+
+    this.handleAllprice()
+    
   },
 
   // 获取收货地址
@@ -41,6 +54,19 @@ Page({
         // 把地址数据保存到本地
         wx.setStorageSync("address", this.data.address)
       }
+    })
+  },
+
+  // 计算总价格
+  handleAllprice() {
+    let price = 0;
+    // 循环添加商品的价格
+    this.data.goods.forEach(v => {
+      price += v.goods_price
+    })
+    // 修改总价格
+    this.setData({
+      allprice: price
     })
   }
 
