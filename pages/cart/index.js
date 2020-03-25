@@ -62,15 +62,17 @@ Page({
     let price = 0;
     // 循环添加商品的价格
     this.data.goods.forEach(v => {
-      price += v.goods_price
+      price += v.goods_price * v.number
     })
     // 修改总价格
     this.setData({
       allprice: price
     })
+    // 把修改的数据重新保存到本地
+    wx.setStorageSync("goods", this.data.goods)
   },
 
-  // 点击加号事件
+  // 商品数量的加减事件
   handleCalc(e){
     // 保存当前点击数据的索引值
     const { index, number } = e.currentTarget.dataset
@@ -87,18 +89,16 @@ Page({
             // 点击确认删除商品
             this.data.goods.splice(index, 1)
 
-            // 重新修改data中goods的值 刷新数据
-            this.setData({
-              goods: this.data.goods
-            })
           } else if (res.cancel) {
-            this.data.goods[index].number = 1;
-
-            // 重新修改data中goods的值 刷新数据
-            this.setData({
-              goods: this.data.goods
-            })
+            // 点击取消按钮 商品数量重新+1
+            this.data.goods[index].number += 1;
           }
+          // 重新修改data中goods的值 刷新数据
+          this.setData({
+            goods: this.data.goods
+          })
+          // 计算总价格
+          this.handleAllprice()
         }
       })
     }
@@ -107,6 +107,9 @@ Page({
     this.setData({
       goods: this.data.goods
     })
+
+    // 计算总价格
+    this.handleAllprice()
   }
 
 
