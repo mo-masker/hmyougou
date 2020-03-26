@@ -110,6 +110,31 @@ Page({
 
     // 计算总价格
     this.handleAllprice()
+  },
+
+  // 通过输入框编辑商品数量
+  handeleBlur(e){
+    // console.log(e)
+    // index是当前点击的商品
+    const { index } = e.currentTarget.dataset
+    // 是输入框的值
+    let { value } = e.detail
+
+    value = Math.floor(Number(value))
+
+    if(value < 1){
+      value = 1
+    }
+
+    // 得到输入的数据修改商品的数量
+    this.data.goods[index].number = value
+
+    // 重新修改data中goods的值 刷新数据
+    this.setData({
+      goods: this.data.goods
+    })
+    // 计算总价格
+    this.handleAllprice()
   }
 
 
