@@ -75,7 +75,10 @@
   <!-- 订单全选和结算 -->
   <view class="checkout">
     <view class="all">
-      <icon type="success" color="red"></icon>全选
+      <icon 
+      type="success"
+       color="{{allselect ? 'red' : 'gray'}}" 
+       ></icon>全选
     </view>
     <view class="allprice">
       <view class="allprice-top">合计:

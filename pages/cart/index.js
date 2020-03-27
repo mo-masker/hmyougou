@@ -8,9 +8,11 @@ Page({
     // 收货地址
     address: {},
     // 本地的商品列表
-    goods:[],
+    goods: [],
     // 总价格
-    allprice:0
+    allprice: 0,
+    // 全选按钮的状态
+    allselect: true
 
   },
 
@@ -21,18 +23,18 @@ Page({
     // 获取本地的收货数据
     this.setData({
       // 如果本地没有address就等于一个空对象
-      address : wx.getStorageSync("address") || {}
+      address: wx.getStorageSync("address") || {}
     })
 
   },
   // 因为data和onload只会执行一次，所以需要在每次打开页面都获取一次本地的数据
-  onShow(){
+  onShow() {
     this.setData({
       goods: wx.getStorageSync("goods") || []
     })
 
     this.handleAllprice()
-    
+
   },
 
   // 获取收货地址
@@ -63,7 +65,7 @@ Page({
     // 循环添加商品的价格
     this.data.goods.forEach(v => {
       // 判断商品是否是选中状态
-      if(v.select){
+      if (v.select) {
 
         price += v.goods_price * v.number
       }
@@ -77,18 +79,21 @@ Page({
   },
 
   // 商品数量的加减事件
-  handleCalc(e){
+  handleCalc(e) {
     // 保存当前点击数据的索引值
-    const { index, number } = e.currentTarget.dataset
+    const {
+      index,
+      number
+    } = e.currentTarget.dataset
     // 给当前点击的商品数量 +1
     this.data.goods[index].number += number;
 
     // 判断 如果数量为0的时候，删除当前商品
-    if (this.data.goods[index].number === 0){
+    if (this.data.goods[index].number === 0) {
       wx.showModal({
         title: '提示',
         content: '是否删除该商品',
-        success:(res)=> {
+        success: (res) => {
           if (res.confirm) {
             // 点击确认删除商品
             this.data.goods.splice(index, 1)
@@ -117,16 +122,20 @@ Page({
   },
 
   // 通过输入框编辑商品数量
-  handeleBlur(e){
+  handeleBlur(e) {
     // console.log(e)
     // index是当前点击的商品
-    const { index } = e.currentTarget.dataset
+    const {
+      index
+    } = e.currentTarget.dataset
     // 是输入框的值
-    let { value } = e.detail
+    let {
+      value
+    } = e.detail
 
     value = Math.floor(Number(value))
 
-    if(value < 1){
+    if (value < 1) {
       value = 1
     }
 
@@ -142,10 +151,14 @@ Page({
   },
 
   // 单选按钮的点击事件
-  handleSelect(e){
+  handleSelect(e) {
     // console.log(e)
-    const { index } = e.currentTarget.dataset;
-    let { select } = this.data.goods[index];
+    const {
+      index
+    } = e.currentTarget.dataset;
+    let {
+      select
+    } = this.data.goods[index];
 
     this.data.goods[index].select = !select
 
@@ -155,7 +168,39 @@ Page({
     })
     // 计算总价格
     this.handleAllprice()
-    
+
+    this.handleAllselect()
+  },
+
+  // 全选的状态
+  handleAllselect() {
+    // some写法
+    // const select = this.data.goods.some(v => {
+    //   return !v.select
+    // })
+
+    // this.setData({
+    //   allselect:!select
+    // })
+
+    // 先假设所有的商品都是选中状态
+    let currentSelect = true;
+
+    // 循环所有的商品
+    this.data.goods.forEach(v=>{
+      // 如果有一个商品的状态是false，就不用执行下面的判断了
+      if (currentSelect === false){
+        return
+      }
+      // 只要有一个为fasle,currentSelect就等于false
+      if(v.select === false){
+        currentSelect = false
+      }
+    })
+    // 修改全选按钮的状态
+    this.setData({
+      allselect:currentSelect
+    })
   }
 
 
