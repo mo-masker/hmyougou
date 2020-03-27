@@ -1,4 +1,7 @@
-/* pages/category/index.wxss */
+.tab-page{
+  padding-bottom: 48px;
+}
+
 .content{
   /* 这里必须要使用绝对定位，在苹果手机下头部搜索就不可以拖动了 */
   /* position: absolute;

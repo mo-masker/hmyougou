@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container tab-page">
   <!-- 收货信息 -->
   <view class="address" wx:if="{{!address.name}}" bindtap="handleGetAddress">
     <!-- 收货人 -->

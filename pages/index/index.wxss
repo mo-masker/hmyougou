@@ -1,4 +1,6 @@
-
+.tab-page{
+  padding-bottom: 48px;
+}
 
 /* 轮播图 */
 .swiper{

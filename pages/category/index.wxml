@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container tab-page">
   <!-- 引用搜索自定义组件 -->
   <search/>
   <view class="content">

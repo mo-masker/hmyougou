@@ -29,6 +29,16 @@ Page({
     })
   },
 
+  onShow() {
+    // 自定义tab使用
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1
+      })
+    }
+  },
+
   // 菜单项的点击事件
   handleClick(e){
     // console.log(e)

@@ -59,6 +59,16 @@ Page({
     })
   },
 
+  onShow(){
+    // 自定义tab使用
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0
+      })
+    }
+  },
+
   // 回到顶部点击事件
   handleTotop(){
     wx.pageScrollTo({

@@ -35,6 +35,14 @@ Page({
 
     this.handleAllprice()
 
+    // 自定义tab使用
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 2
+      })
+    }
+
   },
 
   // 获取收货地址
