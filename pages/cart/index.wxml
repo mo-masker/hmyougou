@@ -78,6 +78,7 @@
       <icon 
       type="success"
        color="{{allselect ? 'red' : 'gray'}}" 
+       bindtap="handleTabAllselect"
        ></icon>全选
     </view>
     <view class="allprice">

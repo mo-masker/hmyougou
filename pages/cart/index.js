@@ -187,20 +187,41 @@ Page({
     let currentSelect = true;
 
     // 循环所有的商品
-    this.data.goods.forEach(v=>{
+    this.data.goods.forEach(v => {
       // 如果有一个商品的状态是false，就不用执行下面的判断了
-      if (currentSelect === false){
+      if (currentSelect === false) {
         return
       }
       // 只要有一个为fasle,currentSelect就等于false
-      if(v.select === false){
+      if (v.select === false) {
         currentSelect = false
       }
     })
     // 修改全选按钮的状态
     this.setData({
-      allselect:currentSelect
+      allselect: currentSelect
     })
+  },
+
+  // 全选按钮的点击事件
+  handleTabAllselect() {
+    // 保存当前全选按钮的状态
+    const allselect = this.data.allselect
+    
+    this.data.goods.forEach(v => {
+        v.select = !allselect
+    })
+
+    this.setData({
+      // 刷新商品数据
+      goods: this.data.goods,
+      // 每次点击修改全选状态
+      allselect: !allselect
+    })
+    
+    // 计算总价格
+    this.handleAllprice()
+   
   }
 
 
