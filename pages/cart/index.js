@@ -62,7 +62,11 @@ Page({
     let price = 0;
     // 循环添加商品的价格
     this.data.goods.forEach(v => {
-      price += v.goods_price * v.number
+      // 判断商品是否是选中状态
+      if(v.select){
+
+        price += v.goods_price * v.number
+      }
     })
     // 修改总价格
     this.setData({
@@ -135,6 +139,23 @@ Page({
     })
     // 计算总价格
     this.handleAllprice()
+  },
+
+  // 单选按钮的点击事件
+  handleSelect(e){
+    // console.log(e)
+    const { index } = e.currentTarget.dataset;
+    let { select } = this.data.goods[index];
+
+    this.data.goods[index].select = !select
+
+    // 重新修改data中goods的值 刷新数据
+    this.setData({
+      goods: this.data.goods
+    })
+    // 计算总价格
+    this.handleAllprice()
+    
   }
 
 

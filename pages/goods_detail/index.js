@@ -100,7 +100,8 @@ Page({
         goods_name: this.data.goodsInfo.goods_name,
         goods_price: this.data.goodsInfo.goods_price,
         goods_small_logo: this.data.goodsInfo.goods_small_logo,
-        number: 1
+        number: 1, // 默认数量为1
+        select:true  // 默认选中状态
       })
       // 提示
       wx.showToast({
